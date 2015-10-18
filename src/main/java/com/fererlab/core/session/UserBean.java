@@ -1,4 +1,4 @@
-package com.fererlab.session;
+package com.fererlab.core.session;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;

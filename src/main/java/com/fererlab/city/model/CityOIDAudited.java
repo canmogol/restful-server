@@ -10,8 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "CITY_OID_AUDITED")
-@XmlRootElement
-public class CityOIDAudited extends BaseModelOIDAudited {
+public class CityOIDAudited extends BaseModelOIDAudited implements City<String>{
 
     private static final long serialVersionUID = -2751402665525071933L;
 

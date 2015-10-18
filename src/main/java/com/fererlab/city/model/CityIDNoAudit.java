@@ -5,13 +5,11 @@ import com.fererlab.core.model.BaseModelID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
 
 @Entity
 @Table(name = "CITY_ID_NO_AUDIT")
-@XmlRootElement
-public class CityIDNoAudit extends BaseModelID<Long> {
+public class CityIDNoAudit extends BaseModelID<Long> implements City<Long>{
 
     private static final long serialVersionUID = 3095959829066806345L;
 

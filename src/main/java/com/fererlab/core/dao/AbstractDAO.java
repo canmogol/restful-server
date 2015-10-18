@@ -2,7 +2,7 @@ package com.fererlab.core.dao;
 
 import com.fererlab.core.model.AuditModel;
 import com.fererlab.core.model.BaseModel;
-import com.fererlab.session.UserBean;
+import com.fererlab.core.session.UserBean;
 
 import javax.ejb.EJB;
 import javax.persistence.EntityManager;

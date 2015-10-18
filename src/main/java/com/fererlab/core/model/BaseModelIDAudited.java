@@ -17,7 +17,7 @@ public abstract class BaseModelIDAudited<T extends Number> extends AuditedBaseMo
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "BIM_SEQ")
     @SequenceGenerator(name = "BIM_SEQ", sequenceName = "BIM_SEQ", allocationSize = 1)
-    @Column(name = "IABM_ID", updatable = false, nullable = false)
+    @Column(name = "BMIA_ID", updatable = false, nullable = false)
     @XmlElement(type = Number.class)
     @XmlSchemaType(name = "long"/*this will be the type of the id at the generated client side*/)
     public T getId() {

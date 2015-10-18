@@ -1,4 +1,4 @@
-package com.fererlab.restful;
+package com.fererlab.city.restful;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

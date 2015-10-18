@@ -1,92 +1,89 @@
-package com.fererlab.restful;
+package com.fererlab.city.restful;
+
+import com.fererlab.city.serviceengine.CityServiceEngine;
+import com.fererlab.city.serviceengine.dto.CityIdIntegerDTO;
+import com.fererlab.city.serviceengine.dto.CityIdLongDTO;
+import com.fererlab.city.serviceengine.dto.CityOidDTO;
+import com.fererlab.city.serviceengine.dto.CityUuidDTO;
 
 import javax.ejb.EJB;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-
-import com.fererlab.city.CityServiceEngine;
-import com.fererlab.city.model.CityIDAudited;
-import com.fererlab.city.model.CityIDNoAudit;
-import com.fererlab.city.model.CityOIDAudited;
-import com.fererlab.city.model.CityOIDNoAudit;
-import com.fererlab.city.model.CityUUIDAudited;
-import com.fererlab.city.model.CityUUIDNoAudit;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.ws.rs.*;
 
 @Path("/city")
 @Produces({"application/json"})
 @Consumes({"application/json"})
+@Stateless
+@LocalBean
 public class CityResource {
 
-
-    @EJB
+    @EJB(name = "CityServiceEngineImpl")
     CityServiceEngine cityServiceEngine;
 
     @GET
     @Path("/create/ID")
-    public CityIDAudited createModelWithID() {
+    public CityIdIntegerDTO createModelWithID() {
         return cityServiceEngine.createModelWithID();
     }
 
     @GET
     @Path("/create/IDNoAudit")
-    public CityIDNoAudit createModelWithIDNoAudit() {
+    public CityIdLongDTO createModelWithIDNoAudit() {
         return cityServiceEngine.createModelWithIDNoAudit();
     }
 
     @GET
     @Path("/create/OID")
-    public CityOIDAudited createModelWithOID() {
+    public CityOidDTO createModelWithOID() {
         return cityServiceEngine.createModelWithOID();
     }
 
     @GET
     @Path("/create/OIDNoAudit")
-    public CityOIDNoAudit createModelWithOIDNoAudit() {
+    public CityOidDTO createModelWithOIDNoAudit() {
         return cityServiceEngine.createModelWithOIDNoAudit();
     }
 
     @GET
     @Path("/create/UUID")
-    public CityUUIDAudited createModelWithUUID() {
+    public CityUuidDTO createModelWithUUID() {
         return cityServiceEngine.createModelWithUUID();
     }
 
     @GET
     @Path("/create/UUIDNoAudit")
-    public CityUUIDNoAudit createModelWithUUIDNoAudit() {
+    public CityUuidDTO createModelWithUUIDNoAudit() {
         return cityServiceEngine.createModelWithUUIDNoAudit();
     }
 
     @GET
     @Path("/find/ID/{id}")
-    public CityIDAudited findModelWithID(@PathParam("id") Integer id) {
+    public CityIdIntegerDTO findModelWithID(@PathParam("id") Integer id) {
         return cityServiceEngine.findModelWithID(id);
     }
 
     @GET
     @Path("/find/UUID/{uuid}")
-    public CityUUIDAudited findModelWithUUID(@PathParam("uuid") String uuid) {
+    public CityUuidDTO findModelWithUUID(@PathParam("uuid") String uuid) {
         return cityServiceEngine.findModelWithUUID(uuid);
     }
 
     @GET
     @Path("/find/OID/{oid}")
-    public CityOIDAudited findModelWithOID(@PathParam("oid") String oid) {
+    public CityOidDTO findModelWithOID(@PathParam("oid") String oid) {
         return cityServiceEngine.findModelWithOID(oid);
     }
 
     @GET
     @Path("/updateCS/ID/{id}/{name}")
-    public CityIDAudited updateModelWithIDCityService(@PathParam("id") Integer id, @PathParam("name") String name) {
+    public CityIdIntegerDTO updateModelWithIDCityService(@PathParam("id") Integer id, @PathParam("name") String name) {
         return cityServiceEngine.updateModelWithIDCityService(id, name);
     }
 
     @GET
     @Path("/updateGS/ID/{id}/{name}")
-    public CityIDAudited updateModelWithIDGenericService(@PathParam("id") Integer id, @PathParam("name") String name) {
+    public CityIdIntegerDTO updateModelWithIDGenericService(@PathParam("id") Integer id, @PathParam("name") String name) {
         return cityServiceEngine.updateModelWithIDGenericService(id, name);
     }
 

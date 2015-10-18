@@ -1,10 +1,6 @@
 package com.fererlab.core.model;
 
 
-import com.fasterxml.uuid.EthernetAddress;
-import com.fasterxml.uuid.Generators;
-import com.fasterxml.uuid.impl.TimeBasedGenerator;
-
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
@@ -43,9 +39,7 @@ public abstract class BaseModelUUID implements BaseModel<String> {
 
     private String generate() {
         try {
-            EthernetAddress ethernetAddress = EthernetAddress.fromInterface();
-            TimeBasedGenerator uuidGenerator = Generators.timeBasedGenerator(ethernetAddress);
-            UUID uuid = uuidGenerator.generate();
+            UUID uuid = UUID.randomUUID();
             return uuid.toString();
         } catch (Exception e) {
             e.printStackTrace();

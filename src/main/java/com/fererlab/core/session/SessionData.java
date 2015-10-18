@@ -1,9 +1,8 @@
-package com.fererlab.session;
-
-import java.io.Serializable;
-import java.util.Random;
+package com.fererlab.core.session;
 
 import javax.enterprise.context.SessionScoped;
+import java.io.Serializable;
+import java.util.Random;
 
 @SessionScoped
 public class SessionData implements Serializable {

@@ -22,7 +22,7 @@ public abstract class BaseModelOIDAudited extends AuditedBaseModel<String> {
     }
 
     @Id
-    @Column(name = "OABM_OID", updatable = false, nullable = false)
+    @Column(name = "BMOA_OID", updatable = false, nullable = false)
     public String getId() {
         return id;
     }
