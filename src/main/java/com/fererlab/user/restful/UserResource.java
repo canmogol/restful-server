@@ -19,8 +19,7 @@ public class UserResource {
     private UserServiceEngine userServiceEngine;
 
     @GET
-    @Path("/{id}")
-    public UserDTO find(@PathParam("id") Integer id) {
+    public UserDTO find(@QueryParam("id") Integer id) {
         return userServiceEngine.find(id);
     }
 
@@ -35,8 +34,7 @@ public class UserResource {
     }
 
     @DELETE
-    @Path("/{id}")
-    public UserDTO update(@PathParam("id") Integer id) {
+    public UserDTO delete(@QueryParam("id") Integer id) {
         return userServiceEngine.delete(id);
     }
 
