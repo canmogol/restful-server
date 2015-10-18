@@ -45,7 +45,7 @@
                             <addResourceAndMethodIds>true</addResourceAndMethodIds>
                             <linkAnyMediaTypeToXmlSchema>true</linkAnyMediaTypeToXmlSchema>
                             <classResourceNames/>
-                            <basePackages>com.fererlab.city.restful,com.fererlab.user.restful,com.fererlab.car.restful</basePackages>
+                            <basePackages>com.fererlab.city.restful,com.fererlab.user.restful,com.fererlab.car.restful,com.fererlab.async.restful</basePackages>
                             <docProvider>org.apache.cxf.maven_plugin.javatowadl.ResourceMapJavaDocProvider</docProvider>
                             <attachWadl>true</attachWadl>
                             <stylesheetReference>${project.build.finalName}/application.xsl</stylesheetReference>
