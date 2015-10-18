@@ -18,8 +18,8 @@ public class CityServiceEngineImpl implements CityServiceEngine {
     @EJB(name = "OIDGenerator")
     private OIDGenerator oidGenerator;
 
-    @EJB(name = "CopyStrategy")
-    private CopyStrategy copyStrategy;
+    @EJB(name = "CityCopyStrategy")
+    private CityCopyStrategy copyStrategy;
 
     @EJB(name = "CityIDAuditedServiceImpl")
     private CityIDAuditedService cityIDAuditedService;
@@ -52,7 +52,9 @@ public class CityServiceEngineImpl implements CityServiceEngine {
         // or persist object with generic service
         idService.create(city);
         // persisted object
-        return copyStrategy.copy(city, new CityIdIntegerDTO());
+        CityIdIntegerDTO dto = new CityIdIntegerDTO();
+        copyStrategy.copy(city, dto);
+        return dto;
     }
 
     @Override
@@ -63,7 +65,9 @@ public class CityServiceEngineImpl implements CityServiceEngine {
         // persist object
         idNoAuditService.create(city);
         // persisted object
-        return copyStrategy.copy(city, new CityIdLongDTO());
+        CityIdLongDTO dto = new CityIdLongDTO();
+        copyStrategy.copy(city, dto);
+        return dto;
     }
 
     @Override
@@ -76,7 +80,9 @@ public class CityServiceEngineImpl implements CityServiceEngine {
         // persist object
         oidService.create(city);
         // persisted object
-        return copyStrategy.copy(city, new CityOidDTO());
+        CityOidDTO dto = new CityOidDTO();
+        copyStrategy.copy(city, dto);
+        return dto;
     }
 
     @Override
@@ -89,7 +95,9 @@ public class CityServiceEngineImpl implements CityServiceEngine {
         // persist object
         oidNoAuditService.create(city);
         // persisted object
-        return copyStrategy.copy(city, new CityOidDTO());
+        CityOidDTO dto = new CityOidDTO();
+        copyStrategy.copy(city, dto);
+        return dto;
     }
 
     @Override
@@ -100,7 +108,9 @@ public class CityServiceEngineImpl implements CityServiceEngine {
         // persist object
         uuidService.create(city);
         // persisted object
-        return copyStrategy.copy(city, new CityUuidDTO());
+        CityUuidDTO dto = new CityUuidDTO();
+        copyStrategy.copy(city, dto);
+        return dto;
     }
 
     @Override
@@ -111,30 +121,38 @@ public class CityServiceEngineImpl implements CityServiceEngine {
         // persist object
         uuidNoAuditService.create(city);
         // persisted object
-        return copyStrategy.copy(city, new CityUuidDTO());
+        CityUuidDTO dto = new CityUuidDTO();
+        copyStrategy.copy(city, dto);
+        return dto;
     }
 
     @Override
     public CityIdIntegerDTO findModelWithID(Integer id) {
-        return copyStrategy.copy(
+        CityIdIntegerDTO dto = new CityIdIntegerDTO();
+        copyStrategy.copy(
                 idService.findById(CityIDAudited.class, id),
-                new CityIdIntegerDTO());
+                dto);
+        return dto;
     }
 
     @Override
     public CityUuidDTO findModelWithUUID(String uuid) {
-        return copyStrategy.copy(
+        CityUuidDTO dto = new CityUuidDTO();
+        copyStrategy.copy(
                 uuidService.findById(CityUUIDAudited.class, uuid),
-                new CityUuidDTO()
+                dto
         );
+        return dto;
     }
 
     @Override
     public CityOidDTO findModelWithOID(String oid) {
-        return copyStrategy.copy(
+        CityOidDTO dto = new CityOidDTO();
+        copyStrategy.copy(
                 oidService.findById(CityOIDAudited.class, oid),
-                new CityOidDTO()
+                dto
         );
+        return dto;
     }
 
     @Override
@@ -142,7 +160,9 @@ public class CityServiceEngineImpl implements CityServiceEngine {
         CityIDAudited city = idService.findById(CityIDAudited.class, id);
         city.setName(name);
         cityIDAuditedService.update(city);
-        return copyStrategy.copy(city, new CityIdIntegerDTO());
+        CityIdIntegerDTO dto = new CityIdIntegerDTO();
+        copyStrategy.copy(city, dto);
+        return dto;
     }
 
     @Override
@@ -150,7 +170,9 @@ public class CityServiceEngineImpl implements CityServiceEngine {
         CityIDAudited city = idService.findById(CityIDAudited.class, id);
         city.setName(name);
         idService.update(city);
-        return copyStrategy.copy(city, new CityIdIntegerDTO());
+        CityIdIntegerDTO dto = new CityIdIntegerDTO();
+        copyStrategy.copy(city, dto);
+        return dto;
     }
 
 }

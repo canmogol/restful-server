@@ -4,13 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.restful.server.coast</groupId>
-    <artifactId>restful-server-city</artifactId>
+    <artifactId>restful-server</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>restful-server-city</name>
+    <name>restful-server</name>
 
     <build>
-        <finalName>restful-server-city</finalName>
+        <finalName>restful-server</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -45,7 +45,7 @@
                             <addResourceAndMethodIds>true</addResourceAndMethodIds>
                             <linkAnyMediaTypeToXmlSchema>true</linkAnyMediaTypeToXmlSchema>
                             <classResourceNames/>
-                            <basePackages>com.fererlab.city.restful</basePackages>
+                            <basePackages>com.fererlab.city.restful,com.fererlab.user.restful</basePackages>
                             <docProvider>org.apache.cxf.maven_plugin.javatowadl.ResourceMapJavaDocProvider</docProvider>
                             <attachWadl>true</attachWadl>
                             <stylesheetReference>${project.build.finalName}/application.xsl</stylesheetReference>
