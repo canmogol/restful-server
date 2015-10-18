@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "USER_ID_LONG")
+@Table(name = "USER_ID_INT")
 public class User extends BaseModelID<Integer> {
 
     private static final long serialVersionUID = -2573763017488910282L;

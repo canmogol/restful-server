@@ -1,10 +1,8 @@
 package com.fererlab.city.model;
 
-public interface City<T> {
+import com.fererlab.core.model.BaseModel;
 
-    T getId();
-
-    void setId(T t);
+public interface City<T> extends BaseModel<T> {
 
     String getName();
 

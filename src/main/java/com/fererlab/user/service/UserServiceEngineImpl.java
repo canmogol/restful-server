@@ -10,7 +10,7 @@ import javax.ejb.Stateless;
 @Stateless(name = "UserServiceEngineImpl", mappedName = "UserServiceEngineImpl")
 public class UserServiceEngineImpl implements UserServiceEngine {
 
-    @EJB
+    @EJB(name = "UserCopyStrategy")
     private UserCopyStrategy userCopyStrategy;
 
     @EJB(name = "UserServiceImpl")

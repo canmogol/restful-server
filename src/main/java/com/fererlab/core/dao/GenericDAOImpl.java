@@ -1,23 +1,21 @@
 package com.fererlab.core.dao;
 
-import java.util.List;
+import com.fererlab.core.model.BaseModel;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceUnit;
-
-import com.fererlab.core.model.BaseModel;
+import javax.persistence.PersistenceContext;
+import java.util.List;
 
 @Stateless(name = "GenericDAOImpl", mappedName = "GenericDAOImpl")
 public class GenericDAOImpl<T extends BaseModel<?>, PK> extends AbstractDAO<T, PK> implements GenericDAO<T, PK> {
 
-    @PersistenceUnit
-    private EntityManagerFactory entityManagerFactory;
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Override
     public EntityManager getEntityManager() {
-        return entityManagerFactory.createEntityManager();
+        return entityManager;
     }
 
     @Override

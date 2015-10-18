@@ -45,7 +45,7 @@
                             <addResourceAndMethodIds>true</addResourceAndMethodIds>
                             <linkAnyMediaTypeToXmlSchema>true</linkAnyMediaTypeToXmlSchema>
                             <classResourceNames/>
-                            <basePackages>com.fererlab.city.restful,com.fererlab.user.restful</basePackages>
+                            <basePackages>com.fererlab.city.restful,com.fererlab.user.restful,com.fererlab.car.restful</basePackages>
                             <docProvider>org.apache.cxf.maven_plugin.javatowadl.ResourceMapJavaDocProvider</docProvider>
                             <attachWadl>true</attachWadl>
                             <stylesheetReference>${project.build.finalName}/application.xsl</stylesheetReference>
@@ -92,6 +92,17 @@
         </dependency>
 
         <!-- PACK WITH -->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.9.2</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.2</version>
+        </dependency>
+
 
     </dependencies>
 
