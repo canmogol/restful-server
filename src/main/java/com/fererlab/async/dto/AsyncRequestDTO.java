@@ -1,4 +1,4 @@
-package com.fererlab.async.restful.dto;
+package com.fererlab.async.dto;
 
 
 import javax.xml.bind.annotation.XmlRootElement;

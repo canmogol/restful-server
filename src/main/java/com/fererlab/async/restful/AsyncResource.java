@@ -1,7 +1,7 @@
 package com.fererlab.async.restful;
 
-import com.fererlab.async.restful.dto.AsyncRequestDTO;
-import com.fererlab.async.restful.dto.AsyncResponseDTO;
+import com.fererlab.async.dto.AsyncRequestDTO;
+import com.fererlab.async.dto.AsyncResponseDTO;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
