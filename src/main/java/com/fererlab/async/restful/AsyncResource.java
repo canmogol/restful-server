@@ -24,7 +24,7 @@ public class AsyncResource {
 
     @POST
     @Path("/executorRunnable")
-    public void executorRunnable(@QueryParam("name") final String name, @Suspended final AsyncResponse asyncResponse) {
+    public void executorRunnable(@Suspended final AsyncResponse asyncResponse, final String name) {
         log.info("executorRunnable begin");
         executor.execute(new Runnable() {
             @Override
