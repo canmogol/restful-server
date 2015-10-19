@@ -1,11 +1,15 @@
 package com.fererlab.async.restful;
 
+import com.fererlab.async.restful.dto.AsyncRequestDTO;
+import com.fererlab.async.restful.dto.AsyncResponseDTO;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import javax.ws.rs.*;
 import javax.ws.rs.container.AsyncResponse;
 import javax.ws.rs.container.Suspended;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.Request;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -18,9 +22,9 @@ public class AsyncResource {
 
     private ExecutorService executor = Executors.newSingleThreadExecutor();
 
-    @GET
+    @POST
     @Path("/executorRunnable")
-    public void executorRunnable(@Suspended final AsyncResponse asyncResponse) {
+    public void executorRunnable(@QueryParam("name") final String name, @Suspended final AsyncResponse asyncResponse) {
         log.info("executorRunnable begin");
         executor.execute(new Runnable() {
             @Override
@@ -31,11 +35,28 @@ public class AsyncResource {
                 } catch (InterruptedException e) {
                     log.error("could not sleep, exception: " + e.getMessage());
                 }
-                String result = "Hi There!";
+                String result = "Hi There! " + name;
                 log.info("executorRunnable done will send response");
                 asyncResponse.resume(result);
             }
         });
         log.info("executorRunnable end");
     }
+
+
+    @POST
+    @Path("/sayHi")
+    public void sayHi(@Suspended final AsyncResponse asyncResponse,
+                      @Context final Request request,
+                      final AsyncRequestDTO asyncRequestDTO) {
+        new Thread() {
+            @Override
+            public void run() {
+                AsyncResponseDTO asyncResponseDTO = new AsyncResponseDTO();
+                asyncResponseDTO.setResponse("Hi " + asyncRequestDTO.getRequest());
+                asyncResponse.resume(asyncResponseDTO);
+            }
+        }.start();
+    }
+
 }

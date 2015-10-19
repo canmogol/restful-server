@@ -1,7 +1,7 @@
 package com.fererlab.car.restful;
 
 import com.fererlab.car.model.Car;
-import com.fererlab.car.serviceengine.dto.CarDTO;
+import com.fererlab.car.dto.CarDTO;
 import com.fererlab.generic.restful.GenericResource;
 
 import javax.ejb.LocalBean;

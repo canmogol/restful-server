@@ -1,4 +1,4 @@
-package com.fererlab.car.serviceengine.dto;
+package com.fererlab.car.dto;
 
 
 import com.fererlab.generic.dto.BaseDTO;
