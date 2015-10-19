@@ -5,10 +5,12 @@ import org.apache.commons.logging.LogFactory;
 
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
+import java.nio.ByteBuffer;
+import java.util.Random;
 
 
 @ServerEndpoint("/websocket-stream")
-public class StreamingResource extends Endpoint {
+public class StreamingResource {
 
     // ************************************************************************
     // OPEN 3 INCOGNITO WINDOWS IN CHROME TO URL
@@ -18,19 +20,28 @@ public class StreamingResource extends Endpoint {
     private Log log = LogFactory.getLog(StreamingResource.class);
 
     @OnMessage
-    public String message(String message, Session session) {
-        log.info("message: " + message + " session:" + session.getId());
-        return "Hi from server";
+    public void message(byte[] bytes, boolean last, Session session) {
+        log.info("#bytes: " + bytes.length + " last: " + last + " session:" + session.getId());
     }
 
-    public void onOpen(Session session, EndpointConfig config) {
+    @OnOpen
+    public void onOpen(Session session, EndpointConfig config) throws InterruptedException {
         log.info("Open session:" + session.getId());
+        // send client some bytes
+        byte[] bytes = new byte[4096];
+        new Random().nextBytes(bytes);
+        session.getAsyncRemote().sendBinary(ByteBuffer.wrap(bytes));
+        session.getAsyncRemote().sendBinary(ByteBuffer.wrap(bytes));
+        session.getAsyncRemote().sendBinary(ByteBuffer.wrap(bytes));
+        session.getAsyncRemote().sendBinary(ByteBuffer.wrap(new byte[]{1}));
     }
 
+    @OnClose
     public void onClose(Session session, CloseReason closeReason) {
         log.info("Closing:" + session.getId());
     }
 
+    @OnError
     public void onError(Session session, Throwable t) {
         t.printStackTrace();
     }
