@@ -18,6 +18,22 @@ import java.util.List;
 public class AnimalResource {
 
     @GET
+    @Path("/hi")
+    public String hi() {
+        return "Hello";
+    }
+
+    @GET
+    @Path("/list")
+    public ArrayList<String> list() {
+        ArrayList<String> strings = new ArrayList<>();
+        strings.add("test");
+        strings.add("123");
+        return strings;
+    }
+
+    @GET
+    @Path("/zoo")
     public Zoo get() {
         Zoo zoo = new Zoo();
         zoo.setCity("Paz");
