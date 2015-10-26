@@ -1,9 +1,6 @@
 package com.fererlab.animal.restful;
 
-import com.fererlab.animal.dto.Animal;
-import com.fererlab.animal.dto.Elephant;
-import com.fererlab.animal.dto.Lion;
-import com.fererlab.animal.dto.Zoo;
+import com.fererlab.animal.dto.*;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -25,11 +22,14 @@ public class AnimalResource {
 
     @GET
     @Path("/list")
-    public ArrayList<String> list() {
+    @SuppressWarnings("unchecked")
+    public GenericList list() {
         ArrayList<String> strings = new ArrayList<>();
         strings.add("test");
         strings.add("123");
-        return strings;
+        GenericList genericList = new GenericList();
+        genericList.getList().addAll(strings);
+        return genericList;
     }
 
     @GET
