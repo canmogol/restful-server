@@ -1,6 +1,8 @@
 package com.fererlab.user.restful;
 
-import com.fererlab.core.exception.ServiceException;
+import com.fererlab.user.exception.UserDatabaseException;
+import com.fererlab.user.exception.UserException;
+import com.fererlab.user.exception.UserIOException;
 import com.fererlab.user.serviceengine.UserServiceEngine;
 import com.fererlab.user.serviceengine.dto.UserDTO;
 
@@ -14,29 +16,52 @@ import javax.ws.rs.*;
 @Consumes({"application/json"})
 @Stateless
 @LocalBean
-//@Interceptors({ExceptionInterceptor.class})
 public class UserResource {
 
     @EJB(name = "UserServiceEngineImpl")
     private UserServiceEngine userServiceEngine;
 
     @GET
-    public UserDTO find(@QueryParam("id") Integer id) throws ServiceException {
+    @Path("/throwNullPointer")
+    public UserDTO throwNullPointer(@QueryParam("id") Integer id) {
+        return userServiceEngine.throwNullPointerException(id);
+    }
+
+    @GET
+    @Path("/throwUser")
+    public UserDTO throwUser(@QueryParam("id") Integer id) throws UserException {
+        return userServiceEngine.throwUserException(id);
+    }
+
+    @GET
+    @Path("/throwUserDatabase")
+    public UserDTO throwUserDatabase(@QueryParam("id") Integer id) throws UserDatabaseException {
+        return userServiceEngine.throwUserDatabaseException(id);
+    }
+
+    @GET
+    @Path("/throwUserIO")
+    public UserDTO throwUserIO(@QueryParam("id") Integer id) throws UserIOException {
+        return userServiceEngine.throwUserIOException(id);
+    }
+
+    @GET
+    public UserDTO find(@QueryParam("id") Integer id) {
         return userServiceEngine.find(id);
     }
 
     @POST
-    public UserDTO create(UserDTO dto) throws ServiceException {
+    public UserDTO create(UserDTO dto) {
         return userServiceEngine.create(dto);
     }
 
     @PUT
-    public UserDTO update(UserDTO dto) throws ServiceException {
+    public UserDTO update(UserDTO dto) {
         return userServiceEngine.update(dto);
     }
 
     @DELETE
-    public UserDTO delete(@QueryParam("id") Integer id) throws ServiceException {
+    public UserDTO delete(@QueryParam("id") Integer id) {
         return userServiceEngine.delete(id);
     }
 

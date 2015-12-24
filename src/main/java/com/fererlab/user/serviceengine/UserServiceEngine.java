@@ -1,7 +1,9 @@
 package com.fererlab.user.serviceengine;
 
 
-import com.fererlab.core.exception.ServiceException;
+import com.fererlab.user.exception.UserDatabaseException;
+import com.fererlab.user.exception.UserException;
+import com.fererlab.user.exception.UserIOException;
 import com.fererlab.user.serviceengine.dto.UserDTO;
 
 import javax.ejb.Local;
@@ -9,12 +11,20 @@ import javax.ejb.Local;
 @Local
 public interface UserServiceEngine {
 
-    UserDTO find(Integer id) throws ServiceException;
+    UserDTO throwNullPointerException(Integer id);
 
-    UserDTO create(UserDTO dto) throws ServiceException;
+    UserDTO throwUserException(Integer id) throws UserException;
 
-    UserDTO update(UserDTO dto) throws ServiceException;
+    UserDTO throwUserDatabaseException(Integer id) throws UserDatabaseException;
 
-    UserDTO delete(Integer id) throws ServiceException;
+    UserDTO throwUserIOException(Integer id) throws UserIOException;
+
+    UserDTO find(Integer id);
+
+    UserDTO create(UserDTO dto);
+
+    UserDTO update(UserDTO dto);
+
+    UserDTO delete(Integer id);
 
 }
