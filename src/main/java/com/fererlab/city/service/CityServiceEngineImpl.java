@@ -11,6 +11,8 @@ import com.fererlab.city.serviceengine.dto.CityUuidDTO;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import java.util.ArrayList;
+import java.util.Random;
 
 @Stateless(name = "CityServiceEngineImpl", mappedName = "CityServiceEngineImpl")
 public class CityServiceEngineImpl implements CityServiceEngine {
@@ -26,6 +28,9 @@ public class CityServiceEngineImpl implements CityServiceEngine {
 
     @EJB(name = "GenericServiceImpl")
     private GenericService<CityIDAudited, Integer> idService;
+
+    @EJB(name = "GenericServiceImpl")
+    private GenericService<Mayor, Integer> mayorService;
 
     @EJB(name = "GenericServiceImpl")
     private GenericService<CityIDNoAudit, Long> idNoAuditService;
@@ -47,10 +52,23 @@ public class CityServiceEngineImpl implements CityServiceEngine {
         // create audited city object with Long ID
         CityIDAudited city = new CityIDAudited();
         city.setName("New York");
+
+        // create mayor
+        Mayor mayor = new Mayor();
+        mayor.setName("Bill de Blasio");
+        mayor.setCityIDAudited(city);
+
+        // add mayor
+        if (city.getMayorList() == null) {
+            city.setMayorList(new ArrayList<Mayor>());
+        }
+        city.getMayorList().add(mayor);
+
         // persist object with its service
         // cityIDAuditedService.create(city);
         // or persist object with generic service
         idService.create(city);
+        mayorService.create(mayor);
         // persisted object
         CityIdIntegerDTO dto = new CityIdIntegerDTO();
         copyStrategy.copy(city, dto);
@@ -168,6 +186,9 @@ public class CityServiceEngineImpl implements CityServiceEngine {
     public CityIdIntegerDTO updateModelWithIDCityService(Integer id, String name) {
         CityIDAudited city = cityIDAuditedService.findById(id);
         city.setName(name);
+        for (Mayor mayor : city.getMayorList()) {
+            mayor.setName((new Random().nextInt(10)) + " " + mayor.getName());
+        }
         CityIdIntegerDTO dto = new CityIdIntegerDTO();
         copyStrategy.copy(city, dto);
         return dto;
