@@ -1,6 +1,7 @@
 package com.fererlab.user.exception;
 
-import com.fererlab.com.fererlab.core.exception.StacklessException;
+
+import com.fererlab.core.exception.StacklessException;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

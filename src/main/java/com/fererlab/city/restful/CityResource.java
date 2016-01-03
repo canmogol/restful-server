@@ -82,6 +82,12 @@ public class CityResource {
     }
 
     @GET
+    @Path("/deleteCS/ID/{id}")
+    public CityIdIntegerDTO deleteModelWithIDCityService(@PathParam("id") Integer id) {
+        return cityServiceEngine.deleteModelWithIDCityService(id);
+    }
+
+    @GET
     @Path("/updateGS/ID/{id}/{name}")
     public CityIdIntegerDTO updateModelWithIDGenericService(@PathParam("id") Integer id, @PathParam("name") String name) {
         return cityServiceEngine.updateModelWithIDGenericService(id, name);

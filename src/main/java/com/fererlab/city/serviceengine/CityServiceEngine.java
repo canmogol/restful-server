@@ -29,6 +29,8 @@ public interface CityServiceEngine {
 
     CityOidDTO findModelWithOID(String oid);
 
+    CityIdIntegerDTO deleteModelWithIDCityService(Integer id);
+
     CityIdIntegerDTO updateModelWithIDCityService(Integer id, String name);
 
     CityIdIntegerDTO updateModelWithIDGenericService(Integer id, String name);

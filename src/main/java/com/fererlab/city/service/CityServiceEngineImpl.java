@@ -156,10 +156,18 @@ public class CityServiceEngineImpl implements CityServiceEngine {
     }
 
     @Override
+    public CityIdIntegerDTO deleteModelWithIDCityService(Integer id) {
+        CityIDAudited city = cityIDAuditedService.findById(id);
+        cityIDAuditedService.delete(city);
+        CityIdIntegerDTO dto = new CityIdIntegerDTO();
+        copyStrategy.copy(city, dto);
+        return dto;
+    }
+
+    @Override
     public CityIdIntegerDTO updateModelWithIDCityService(Integer id, String name) {
         CityIDAudited city = cityIDAuditedService.findById(id);
         city.setName(name);
-        cityIDAuditedService.update(city);
         CityIdIntegerDTO dto = new CityIdIntegerDTO();
         copyStrategy.copy(city, dto);
         return dto;
@@ -169,7 +177,6 @@ public class CityServiceEngineImpl implements CityServiceEngine {
     public CityIdIntegerDTO updateModelWithIDGenericService(Integer id, String name) {
         CityIDAudited city = idService.findById(CityIDAudited.class, id);
         city.setName(name);
-        idService.update(city);
         CityIdIntegerDTO dto = new CityIdIntegerDTO();
         copyStrategy.copy(city, dto);
         return dto;

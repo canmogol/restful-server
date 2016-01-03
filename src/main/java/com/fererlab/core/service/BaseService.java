@@ -11,6 +11,8 @@ public interface BaseService<T extends Serializable, PK>
 
     void update(T t);
 
+    void delete(T t);
+
     void delete(PK id);
 
     T findById(PK id);
