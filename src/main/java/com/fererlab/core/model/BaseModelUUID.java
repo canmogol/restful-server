@@ -4,18 +4,14 @@ package com.fererlab.core.model;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.Version;
-import java.util.Objects;
 import java.util.UUID;
 
 @MappedSuperclass
-public abstract class BaseModelUUID implements BaseModel<String> {
+public abstract class BaseModelUUID extends BaseModel<String> {
 
     private static final long serialVersionUID = 4099800439835588676L;
 
-    private String id = generate();
-
-    private Long version = 0L;
+    private String id = UUID.randomUUID().toString();
 
     @Id
     @Column(name = "BMUUID_UUID", updatable = false, nullable = false)
@@ -26,40 +22,5 @@ public abstract class BaseModelUUID implements BaseModel<String> {
     public void setId(String id) {
         this.id = id;
     }
-
-    @Version
-    @Column(name = "BMUUID_VERSION", nullable = false)
-    public Long getVersion() {
-        return version;
-    }
-
-    public void setVersion(Long version) {
-        this.version = version;
-    }
-
-    private String generate() {
-        try {
-            UUID uuid = UUID.randomUUID();
-            return uuid.toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return UUID.randomUUID().toString();
-        }
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        BaseModelUUID model = (BaseModelUUID) o;
-        return Objects.equals(getId(), model.getId()) &&
-                Objects.equals(getVersion(), model.getVersion());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId(), getVersion());
-    }
-
 
 }

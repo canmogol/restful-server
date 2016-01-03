@@ -8,6 +8,6 @@ import javax.ejb.Local;
 
 
 @Local
-public interface CityIDAuditedDAO extends BaseDAO<CityIDAudited, Long> {
+public interface CityIDAuditedDAO extends BaseDAO<CityIDAudited, Integer> {
 
 }

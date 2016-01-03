@@ -19,5 +19,5 @@ public interface BaseService<T extends Serializable, PK>
 
     List<T> list(final Integer index, final Integer numberOfRecords);
 
-    PK count();
+    Long count();
 }

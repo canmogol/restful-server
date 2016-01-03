@@ -7,13 +7,11 @@ import javax.xml.bind.annotation.XmlSchemaType;
 
 @XmlRootElement
 @MappedSuperclass
-public abstract class BaseModelID<T extends Number> implements BaseModel<T> {
+public abstract class BaseModelID<T extends Number> extends BaseModel<T> {
 
     private static final long serialVersionUID = -8972284080373473337L;
 
     private T t;
-
-    private Long version = 0L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "BM_SEQ")
@@ -27,16 +25,6 @@ public abstract class BaseModelID<T extends Number> implements BaseModel<T> {
 
     public void setId(T t) {
         this.t = t;
-    }
-
-    @Version
-    @Column(name = "BM_VERSION", nullable = false)
-    public Long getVersion() {
-        return version;
-    }
-
-    public void setVersion(Long version) {
-        this.version = version;
     }
 
 }

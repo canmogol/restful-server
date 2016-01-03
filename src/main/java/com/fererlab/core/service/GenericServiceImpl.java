@@ -1,14 +1,14 @@
 package com.fererlab.core.service;
 
 import com.fererlab.core.dao.GenericDAO;
-import com.fererlab.core.model.BaseModel;
+import com.fererlab.core.model.Model;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import java.util.List;
 
 @Stateless(name = "GenericServiceImpl", mappedName = "GenericServiceImpl")
-public class GenericServiceImpl<T extends BaseModel<?>, PK> implements GenericService<T, PK> {
+public class GenericServiceImpl<T extends Model<?>, PK> implements GenericService<T, PK> {
 
     @EJB(beanName = "GenericDAOImpl")
     private GenericDAO<T, PK> genericDAO;
@@ -53,7 +53,7 @@ public class GenericServiceImpl<T extends BaseModel<?>, PK> implements GenericSe
     }
 
     @Override
-    public PK count(Class<T> t) {
+    public Long count(Class<T> t) {
         return getBaseDAO().count(t);
     }
 

@@ -4,16 +4,16 @@ import com.fererlab.city.model.CityIDAudited;
 import com.fererlab.core.dao.AbstractDAO;
 
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceUnit;
 
 @Stateless(name = "CityIDAuditedDAOImpl", mappedName = "CityIDAuditedDAOImpl")
-public class CityIDAuditedDAOImpl extends AbstractDAO<CityIDAudited, Long> implements CityIDAuditedDAO {
+public class CityIDAuditedDAOImpl extends AbstractDAO<CityIDAudited, Integer> implements CityIDAuditedDAO {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    @PersistenceUnit
+    private EntityManagerFactory entityManagerFactory;
 
-    public EntityManager getEntityManager() {
-        return entityManager;
+    public EntityManagerFactory getEntityManagerFactory() {
+        return entityManagerFactory;
     }
 }

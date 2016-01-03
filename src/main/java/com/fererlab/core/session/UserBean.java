@@ -1,12 +1,15 @@
 package com.fererlab.core.session;
 
-import javax.ejb.LocalBean;
-import javax.ejb.Stateless;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
+import java.io.Serializable;
 
-@Stateless
-@LocalBean
-public class UserBean {
+@Named
+@SessionScoped
+public class UserBean implements Serializable{
+
+    private static final long serialVersionUID = 2966906380015710638L;
 
     @Inject
     private SessionData sessionData;

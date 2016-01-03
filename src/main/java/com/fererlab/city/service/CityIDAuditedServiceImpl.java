@@ -9,13 +9,13 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 @Stateless(name="CityIDAuditedServiceImpl", mappedName = "CityIDAuditedServiceImpl")
-public class CityIDAuditedServiceImpl extends AbstractService<CityIDAudited, Long> implements CityIDAuditedService {
+public class CityIDAuditedServiceImpl extends AbstractService<CityIDAudited, Integer> implements CityIDAuditedService {
 
     @EJB(beanName = "CityIDAuditedDAOImpl")
     private CityIDAuditedDAO cityIDAuditedDAO;
 
     @Override
-    public BaseDAO<CityIDAudited, Long> getBaseDAO() {
+    public BaseDAO<CityIDAudited, Integer> getBaseDAO() {
         return cityIDAuditedDAO;
     }
 }

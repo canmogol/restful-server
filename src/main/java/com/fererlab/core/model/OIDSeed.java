@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "OID_SEED")
 @XmlRootElement
-public class OIDSeed implements BaseModel<String> {
+public class OIDSeed implements Model<String> {
 
     private static final long serialVersionUID = -4122856555701344411L;
 
