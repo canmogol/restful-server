@@ -1,18 +1,16 @@
 package com.fererlab.core.model;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
 import java.util.Date;
 
 @XmlRootElement
 @MappedSuperclass
-public abstract class AuditModel implements Serializable {
+@EntityListeners({AuditModelListener.class})
+//Please Refer to "JSR-000338 JavaTM Persistence 2.1 Final Release" document's "3.5.1 Entity Listeners"
+public abstract class AuditModel<T> extends BaseModel<T> {
 
-    private static final long serialVersionUID = -3595786370597466692L;
+    private static final long serialVersionUID = 1419022173740235697L;
 
     private String createdBy;
     private Date creationDate;
@@ -20,7 +18,6 @@ public abstract class AuditModel implements Serializable {
     private Date updateDate;
     private String deletedBy;
     private Date deleteDate;
-    private boolean deleted = false;
 
     @Column(name = "AUM_CREATED_BY")
     public String getCreatedBy() {
@@ -77,15 +74,6 @@ public abstract class AuditModel implements Serializable {
 
     public void setDeleteDate(Date deleteDate) {
         this.deleteDate = deleteDate;
-    }
-
-    @Column(name = "AUM_IS_DELETED")
-    public boolean isDeleted() {
-        return deleted;
-    }
-
-    public void setDeleted(boolean deleted) {
-        this.deleted = deleted;
     }
 
 }

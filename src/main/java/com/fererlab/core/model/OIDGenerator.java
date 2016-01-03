@@ -27,7 +27,7 @@ public class OIDGenerator {
     private final String OID_PREFIX = "2.16.792.3.10000.1";
 
     @TransactionAttribute(value = TransactionAttributeType.REQUIRES_NEW)
-    public String generate(Class<? extends BaseModel<?>> baseOidModel) {
+    public String generate(Class<? extends Model<?>> baseOidModel) {
         // oid should be something like {joint-iso-itu-t(2) country(16) tr(792) private-sector(3) fererlab(10000) city(1) className(11ss11) }
     	
     	EntityManager entityManager = entityManagerFactory.createEntityManager();

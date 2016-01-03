@@ -1,13 +1,13 @@
 package com.fererlab.core.service;
 
 import com.fererlab.core.dao.GenericDAO;
-import com.fererlab.core.model.BaseModel;
+import com.fererlab.core.model.Model;
 
 import javax.ejb.Local;
 import java.util.List;
 
 @Local
-public interface GenericService<T extends BaseModel<?>, PK>{
+public interface GenericService<T extends Model<?>, PK>{
 
     GenericDAO<T, PK> getBaseDAO();
 
@@ -25,6 +25,6 @@ public interface GenericService<T extends BaseModel<?>, PK>{
 
     List<T> list(Class<T> t, final Integer index, final Integer numberOfRecords);
 
-    PK count(Class<T> t);
+    Long count(Class<T> t);
 
 }

@@ -23,6 +23,6 @@ public interface BaseDAO<T extends Serializable, PK> {
 
     List<T> list(Integer index, Integer numberOfRecords);
 
-    PK count();
+    Long count();
 
 }

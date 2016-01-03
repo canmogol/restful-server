@@ -1,6 +1,6 @@
 package com.fererlab.generic.service;
 
-import com.fererlab.core.model.BaseModel;
+import com.fererlab.core.model.Model;
 import com.fererlab.core.service.GenericService;
 import com.fererlab.generic.dto.BaseDTO;
 import com.fererlab.generic.serviceengine.GenericServiceEngine;
@@ -11,7 +11,7 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 @Stateless(name = "GenericServiceEngineImpl", mappedName = "GenericServiceEngineImpl")
-public class GenericServiceEngineImpl<D extends BaseDTO<PK>, T extends BaseModel<?>, PK> implements GenericServiceEngine<D, T, PK> {
+public class GenericServiceEngineImpl<D extends BaseDTO<PK>, T extends Model<?>, PK> implements GenericServiceEngine<D, T, PK> {
 
     private Log log = LogFactory.getLog(GenericServiceEngineImpl.class);
 

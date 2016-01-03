@@ -6,6 +6,6 @@ import com.fererlab.city.model.CityIDAudited;
 import javax.ejb.Local;
 
 @Local
-public interface CityIDAuditedService extends BaseService<CityIDAudited, Long> {
+public interface CityIDAuditedService extends BaseService<CityIDAudited, Integer> {
 
 }

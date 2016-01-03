@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlSchemaType;
 
 @XmlRootElement
 @MappedSuperclass
-public abstract class BaseModelIDAudited<T extends Number> extends AuditedBaseModel<T> {
+public abstract class BaseModelIDAudited<T extends Number> extends AuditModel<T> {
 
     private static final long serialVersionUID = 8944877679279874598L;
 

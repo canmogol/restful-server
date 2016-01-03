@@ -157,7 +157,7 @@ public class CityServiceEngineImpl implements CityServiceEngine {
 
     @Override
     public CityIdIntegerDTO updateModelWithIDCityService(Integer id, String name) {
-        CityIDAudited city = idService.findById(CityIDAudited.class, id);
+        CityIDAudited city = cityIDAuditedService.findById(id);
         city.setName(name);
         cityIDAuditedService.update(city);
         CityIdIntegerDTO dto = new CityIdIntegerDTO();

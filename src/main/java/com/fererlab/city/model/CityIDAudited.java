@@ -1,12 +1,13 @@
 package com.fererlab.city.model;
 
 import com.fererlab.core.model.BaseModelIDAudited;
+import org.hibernate.envers.Audited;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
+@Audited
 @Entity
 @Table(name = "CITY_ID_AUDITED")
 public class CityIDAudited extends BaseModelIDAudited<Integer> implements City<Integer> {

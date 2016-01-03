@@ -4,16 +4,16 @@ import com.fererlab.core.dao.AbstractDAO;
 import com.fererlab.user.model.User;
 
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceUnit;
 
 @Stateless(name = "UserDAOImpl", mappedName = "UserDAOImpl")
 public class UserDAOImpl extends AbstractDAO<User, Integer> implements UserDAO {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    @PersistenceUnit
+    private EntityManagerFactory entityManagerFactory;
 
-    public EntityManager getEntityManager() {
-        return entityManager;
+    public EntityManagerFactory getEntityManagerFactory() {
+        return entityManagerFactory;
     }
 }

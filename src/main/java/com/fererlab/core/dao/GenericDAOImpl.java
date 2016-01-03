@@ -1,21 +1,21 @@
 package com.fererlab.core.dao;
 
-import com.fererlab.core.model.BaseModel;
+import com.fererlab.core.model.Model;
 
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceUnit;
 import java.util.List;
 
 @Stateless(name = "GenericDAOImpl", mappedName = "GenericDAOImpl")
-public class GenericDAOImpl<T extends BaseModel<?>, PK> extends AbstractDAO<T, PK> implements GenericDAO<T, PK> {
+public class GenericDAOImpl<T extends Model<?>, PK> extends AbstractDAO<T, PK> implements GenericDAO<T, PK> {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    @PersistenceUnit
+    private EntityManagerFactory entityManagerFactory;
 
     @Override
-    public EntityManager getEntityManager() {
-        return entityManager;
+    public EntityManagerFactory getEntityManagerFactory() {
+        return entityManagerFactory;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class GenericDAOImpl<T extends BaseModel<?>, PK> extends AbstractDAO<T, P
     }
 
     @Override
-    public PK count(Class<T> t) {
+    public Long count(Class<T> t) {
         super.setEntityClass(t);
         return super.count();
     }

@@ -1,8 +1,8 @@
 package com.fererlab.city.model;
 
-import com.fererlab.core.model.BaseModel;
+import com.fererlab.core.model.Model;
 
-public interface City<T> extends BaseModel<T> {
+public interface City<T> extends Model<T> {
 
     String getName();
 

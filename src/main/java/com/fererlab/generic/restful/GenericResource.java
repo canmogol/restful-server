@@ -1,12 +1,12 @@
 package com.fererlab.generic.restful;
 
-import com.fererlab.core.model.BaseModel;
+import com.fererlab.core.model.Model;
 import com.fererlab.generic.dto.BaseDTO;
 import com.fererlab.generic.serviceengine.GenericServiceEngine;
 
 import javax.ejb.EJB;
 
-public abstract class GenericResource<D extends BaseDTO<PK>, T extends BaseModel<?>, PK extends Number> {
+public abstract class GenericResource<D extends BaseDTO<PK>, T extends Model<?>, PK extends Number> {
 
     @EJB(name = "GenericServiceEngineImpl")
     private GenericServiceEngine<D, T, PK> genericServiceEngine;

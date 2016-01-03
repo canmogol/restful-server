@@ -48,7 +48,7 @@ public abstract class AbstractService<T extends Serializable, PK> implements
     }
 
     @Override
-    public PK count() {
+    public Long count() {
         return getBaseDAO().count();
     }
 
