@@ -10,4 +10,8 @@ public interface CityDTO<T> {
 
     void setName(String name);
 
+    String getCountryName();
+
+    void setCountryName(String countryName);
+
 }

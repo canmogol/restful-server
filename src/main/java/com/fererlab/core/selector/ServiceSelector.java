@@ -14,15 +14,12 @@ public abstract class ServiceSelector<I> {
     Instance<I> alternatives;
 
     public I select() {
-
         I service = null;
-
         try {
             service = provider.get();
         } catch (Exception e) {
             service = alternatives.get();
         }
-
         return service;
     }
 

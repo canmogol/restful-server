@@ -16,6 +16,8 @@ public class CityUUIDAudited extends BaseModelUUIDAudited implements City<String
 
     private String name;
 
+    private String countryName;
+
     public CityUUIDAudited() {
     }
 
@@ -30,6 +32,15 @@ public class CityUUIDAudited extends BaseModelUUIDAudited implements City<String
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Column(name = "CT_COUNTRY_NAME", length = 100, unique = true)
+    public String getCountryName() {
+        return countryName;
+    }
+
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
     }
 
 }

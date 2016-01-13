@@ -39,7 +39,7 @@ public class CityIDAudited extends BaseModelIDAudited<Integer> implements City<I
         this.name = name;
     }
 
-    @Column(name = "CT_NAME", length = 100, unique = true)
+    @Column(name = "CT_COUNTRY_NAME", length = 100, unique = true)
     public String getCountryName() {
         return countryName;
     }

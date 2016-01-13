@@ -16,6 +16,8 @@ public class CityOIDNoAudit extends BaseModelOID implements City<String> {
 
     private String name;
 
+    private String countryName;
+
     protected CityOIDNoAudit() {
     }
 
@@ -37,5 +39,13 @@ public class CityOIDNoAudit extends BaseModelOID implements City<String> {
         this.name = name;
     }
 
+    @Column(name = "CT_COUNTRY_NAME", length = 100, unique = true)
+    public String getCountryName() {
+        return countryName;
+    }
+
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
+    }
 
 }

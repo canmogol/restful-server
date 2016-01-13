@@ -52,6 +52,7 @@ public class CityServiceEngineImpl implements CityServiceEngine {
         // create audited city object with Long ID
         CityIDAudited city = new CityIDAudited();
         city.setName("New York");
+        city.setCountryName("USA");
 
         // create mayor
         Mayor mayor = new Mayor();
@@ -156,8 +157,10 @@ public class CityServiceEngineImpl implements CityServiceEngine {
     @Override
     public CityIdIntegerDTO findCityWithCountryName(String countryName) {
         CityIdIntegerDTO cityIdIntegerDTO = new CityIdIntegerDTO();
-        CityIDAudited cityIdList = cityIDAuditedService.findByCountryName(countryName);
-        copyStrategy.copy(cityIdList, cityIdIntegerDTO);
+        CityIDAudited cityIDAudited = cityIDAuditedService.findByCountryName(countryName);
+        if (cityIDAudited != null) {
+            copyStrategy.copy(cityIDAudited, cityIdIntegerDTO);
+        }
         return cityIdIntegerDTO;
     }
 

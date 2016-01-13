@@ -7,6 +7,14 @@ public class CityIdIntegerDTO extends BaseCityDTO<Integer> {
 
     private Integer id;
 
+    public CityIdIntegerDTO() {
+    }
+
+    public CityIdIntegerDTO(String cityName, String countryName) {
+        setName(cityName);
+        setCountryName(countryName);
+    }
+
     @Override
     public Integer getId() {
         return id;

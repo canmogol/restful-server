@@ -2,7 +2,6 @@ package com.fererlab.city.service;
 
 import com.fererlab.city.dao.CityIDAuditedDAO;
 import com.fererlab.city.model.CityIDAudited;
-import com.fererlab.core.dao.BaseDAO;
 import com.fererlab.core.service.AbstractService;
 
 import javax.ejb.EJB;
@@ -15,12 +14,12 @@ public class CityIDAuditedServiceImpl extends AbstractService<CityIDAudited, Int
     private CityIDAuditedDAO cityIDAuditedDAO;
 
     @Override
-    public BaseDAO<CityIDAudited, Integer> getBaseDAO() {
+    public CityIDAuditedDAO getBaseDAO() {
         return cityIDAuditedDAO;
     }
 
     @Override
     public CityIDAudited findByCountryName(String countryName) {
-        return ((CityIDAuditedDAO)getBaseDAO()).findByCountryName(countryName);
+        return getBaseDAO().findByCountryName(countryName);
     }
 }

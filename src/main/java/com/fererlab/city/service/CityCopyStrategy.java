@@ -17,6 +17,7 @@ public class CityCopyStrategy {
     public <T extends BaseCityDTO> void copy(City from, T to) {
         to.setId(from.getId());
         to.setName(from.getName());
+        to.setCountryName(from.getCountryName());
     }
 
     public void copy(List<CityIDAudited> fromList, List<CityIdIntegerDTO> toList) {

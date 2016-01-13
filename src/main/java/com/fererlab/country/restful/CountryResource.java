@@ -14,4 +14,14 @@ import javax.ws.rs.*;
 @LocalBean
 public class CountryResource {
 
+    @EJB(name = "CountryServiceEngineImpl")
+    CountryServiceEngine countryServiceEngine;
+
+    @GET
+    @Path("/findCapitolName/{countryName}")
+    public String findCapitolName(@PathParam("countryName") String countryName) {
+        return countryServiceEngine.findCapitolName(countryName);
+    }
+
+
 }

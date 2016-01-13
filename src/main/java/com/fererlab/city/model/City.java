@@ -8,4 +8,8 @@ public interface City<T> extends Model<T> {
 
     void setName(String name);
 
+    String getCountryName();
+
+    void setCountryName(String countryName);
+
 }
