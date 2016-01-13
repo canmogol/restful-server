@@ -17,6 +17,8 @@ public class CityIDAudited extends BaseModelIDAudited<Integer> implements City<I
 
     private static final long serialVersionUID = -5819948978970016787L;
 
+    private String countryName;
+
     private String name;
 
     private List<Mayor> mayorList;
@@ -35,6 +37,15 @@ public class CityIDAudited extends BaseModelIDAudited<Integer> implements City<I
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Column(name = "CT_NAME", length = 100, unique = true)
+    public String getCountryName() {
+        return countryName;
+    }
+
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
     }
 
     @NotAudited

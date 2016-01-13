@@ -25,6 +25,8 @@ public interface CityServiceEngine {
 
     CityIdIntegerDTO findModelWithID(Integer id);
 
+    CityIdIntegerDTO findCityWithCountryName(String countryName);
+
     CityUuidDTO findModelWithUUID(String uuid);
 
     CityOidDTO findModelWithOID(String oid);

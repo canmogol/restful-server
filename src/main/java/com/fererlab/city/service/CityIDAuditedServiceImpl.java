@@ -18,4 +18,9 @@ public class CityIDAuditedServiceImpl extends AbstractService<CityIDAudited, Int
     public BaseDAO<CityIDAudited, Integer> getBaseDAO() {
         return cityIDAuditedDAO;
     }
+
+    @Override
+    public CityIDAudited findByCountryName(String countryName) {
+        return ((CityIDAuditedDAO)getBaseDAO()).findByCountryName(countryName);
+    }
 }

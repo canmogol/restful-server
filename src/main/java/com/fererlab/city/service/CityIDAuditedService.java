@@ -8,4 +8,6 @@ import javax.ejb.Local;
 @Local
 public interface CityIDAuditedService extends BaseService<CityIDAudited, Integer> {
 
+    CityIDAudited findByCountryName(String countryName);
+
 }

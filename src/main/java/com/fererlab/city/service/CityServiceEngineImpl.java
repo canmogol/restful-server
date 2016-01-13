@@ -1,13 +1,13 @@
 package com.fererlab.city.service;
 
 import com.fererlab.city.model.*;
-import com.fererlab.core.model.OIDGenerator;
-import com.fererlab.core.service.GenericService;
 import com.fererlab.city.serviceengine.CityServiceEngine;
 import com.fererlab.city.serviceengine.dto.CityIdIntegerDTO;
 import com.fererlab.city.serviceengine.dto.CityIdLongDTO;
 import com.fererlab.city.serviceengine.dto.CityOidDTO;
 import com.fererlab.city.serviceengine.dto.CityUuidDTO;
+import com.fererlab.core.model.OIDGenerator;
+import com.fererlab.core.service.GenericService;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -151,6 +151,14 @@ public class CityServiceEngineImpl implements CityServiceEngine {
                 idService.findById(CityIDAudited.class, id),
                 dto);
         return dto;
+    }
+
+    @Override
+    public CityIdIntegerDTO findCityWithCountryName(String countryName) {
+        CityIdIntegerDTO cityIdIntegerDTO = new CityIdIntegerDTO();
+        CityIDAudited cityIdList = cityIDAuditedService.findByCountryName(countryName);
+        copyStrategy.copy(cityIdList, cityIdIntegerDTO);
+        return cityIdIntegerDTO;
     }
 
     @Override

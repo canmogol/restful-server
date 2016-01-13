@@ -10,4 +10,6 @@ import javax.ejb.Local;
 @Local
 public interface CityIDAuditedDAO extends BaseDAO<CityIDAudited, Integer> {
 
+    CityIDAudited findByCountryName(String countryName);
+
 }
