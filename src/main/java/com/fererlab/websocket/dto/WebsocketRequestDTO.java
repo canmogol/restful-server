@@ -11,13 +11,13 @@ public class WebsocketRequestDTO implements Serializable {
 
     private static final long serialVersionUID = -2526678660828529152L;
 
-    private String request;
+    private String message;
 
-    public String getRequest() {
-        return request;
+    public String getMessage() {
+        return message;
     }
 
-    public void setRequest(String request) {
-        this.request = request;
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

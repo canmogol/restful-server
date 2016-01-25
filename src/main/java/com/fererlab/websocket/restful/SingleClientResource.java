@@ -1,16 +1,18 @@
 package com.fererlab.websocket.restful;
 
+import com.fererlab.websocket.configurator.HttpSessionConfigurator;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.enterprise.concurrent.ManagedExecutorService;
+import javax.servlet.http.HttpSession;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 
 @Stateless
-@ServerEndpoint("/websocket-single")
+@ServerEndpoint(value = "/websocket-single", configurator = HttpSessionConfigurator.class)
 public class SingleClientResource {
 
     // ************************************************************************
@@ -21,17 +23,33 @@ public class SingleClientResource {
     private Log log = LogFactory.getLog(SingleClientResource.class);
 
     @Resource
-    ManagedExecutorService mes;
+    private ManagedExecutorService mes;
+
+    private Session wsSession;
+    private HttpSession httpSession;
+
 
     @OnMessage
     public String receiveMessage(String message, Session session) {
         log.info("Received : " + message + ", session:" + session.getId());
+        System.out.println("session = " + session);
+        System.out.println("wsSession = " + wsSession);
+        System.out.println("httpSession = " + httpSession);
+        if (httpSession != null) {
+            while (httpSession.getAttributeNames().hasMoreElements()) {
+                Object attribute = httpSession.getAttributeNames().nextElement();
+                Object value = httpSession.getAttribute(String.valueOf(attribute));
+                System.out.println("attribute = " + attribute + " value = " + value);
+            }
+        }
         return "you said: " + message;
     }
 
     @OnOpen
     public void onOpen(final Session session, EndpointConfig config) {
         log.info("Open session: " + session.getId());
+        this.wsSession = session;
+        this.httpSession = (HttpSession) config.getUserProperties().get(HttpSession.class.getName());
         mes.execute(new Runnable() {
             @Override
             public void run() {
