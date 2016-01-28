@@ -8,8 +8,6 @@ import javax.annotation.Resource;
 import javax.ejb.LocalBean;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
-import java.net.InetSocketAddress;
-import java.util.Map;
 
 @Startup
 @LocalBean
@@ -18,8 +16,8 @@ public class ClusterNodesChangedService {
 
     @Resource(lookup = "java:jboss/clustering/group/web")
     private Group channelGroup;
-    private Map<String, InetSocketAddress> previousNodeMap;
-    private Map<String, InetSocketAddress> currentNodeMap;
+    private NodeMap previousNodeMap;
+    private NodeMap currentNodeMap;
     private boolean merged = false;
 
     @PostConstruct
@@ -27,20 +25,20 @@ public class ClusterNodesChangedService {
         channelGroup.addListener(new GroupListener(this/*'this' bean is singleton*/));
     }
 
-    public void setPreviousNodeMap(Map<String, InetSocketAddress> previousNodeMap) {
-        this.previousNodeMap = previousNodeMap;
-    }
-
-    public Map<String, InetSocketAddress> getPreviousNodeMap() {
+    public NodeMap getPreviousNodeMap() {
         return previousNodeMap;
     }
 
-    public void setCurrentNodeMap(Map<String, InetSocketAddress> currentNodeMap) {
-        this.currentNodeMap = currentNodeMap;
+    public void setPreviousNodeMap(NodeMap previousNodeMap) {
+        this.previousNodeMap = previousNodeMap;
     }
 
-    public Map<String, InetSocketAddress> getCurrentNodeMap() {
+    public NodeMap getCurrentNodeMap() {
         return currentNodeMap;
+    }
+
+    public void setCurrentNodeMap(NodeMap currentNodeMap) {
+        this.currentNodeMap = currentNodeMap;
     }
 
     public boolean isMerged() {
