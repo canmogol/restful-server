@@ -3,11 +3,11 @@ package com.fererlab.cluster.service;
 import org.wildfly.clustering.group.Node;
 
 import java.net.InetSocketAddress;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class NodeMap {
-    private Map<String, InetSocketAddress> nodeMap = new HashMap<>();
+    private Map<String, InetSocketAddress> nodeMap = new TreeMap<>();
     private Node currentNode;
 
     public NodeMap() {
