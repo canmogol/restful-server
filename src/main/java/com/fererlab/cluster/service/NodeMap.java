@@ -1,6 +1,5 @@
 package com.fererlab.cluster.service;
 
-import org.wildfly.clustering.group.Node;
 
 import java.net.InetSocketAddress;
 import java.util.Map;
@@ -8,12 +7,12 @@ import java.util.TreeMap;
 
 public class NodeMap {
     private Map<String, InetSocketAddress> nodeMap = new TreeMap<>();
-    private Node currentNode;
+    private String currentNode;
 
     public NodeMap() {
     }
 
-    public NodeMap(Map<String, InetSocketAddress> nodeMap, Node currentNode) {
+    public NodeMap(Map<String, InetSocketAddress> nodeMap, String currentNode) {
         this.nodeMap = nodeMap;
         this.currentNode = currentNode;
     }
@@ -26,11 +25,11 @@ public class NodeMap {
         this.nodeMap = nodeMap;
     }
 
-    public Node getCurrentNode() {
+    public String getCurrentNode() {
         return currentNode;
     }
 
-    public void setCurrentNode(Node currentNode) {
+    public void setCurrentNode(String currentNode) {
         this.currentNode = currentNode;
     }
 }

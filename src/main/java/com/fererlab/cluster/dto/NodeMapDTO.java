@@ -1,11 +1,11 @@
 package com.fererlab.cluster.dto;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class NodeMapDTO {
 
-    private Map<String, String> nodeMap = new HashMap<>();
+    private Map<String, String> nodeMap = new TreeMap<>();
     private String currentNode;
 
     public Map<String, String> getNodeMap() {

@@ -20,7 +20,7 @@ public class ClusterResource {
     @EJB(beanName = "ChannelGroup")
     private ChannelGroup channelGroup;
 
-    @EJB(beanName = "ClusterNodesChangedService")
+    @EJB(beanName = "ClusterNodesChangedServiceImpl")
     private ClusterNodesChangedService clusterNodesChangedService;
 
     @GET
@@ -32,7 +32,7 @@ public class ClusterResource {
             InetSocketAddress address = nodeMap.getNodeMap().get(nodeName);
             nodeMapDTO.getNodeMap().put(nodeName, address.toString());
         }
-        nodeMapDTO.setCurrentNode(nodeMap.getCurrentNode().getName());
+        nodeMapDTO.setCurrentNode(nodeMap.getCurrentNode());
         return nodeMapDTO;
     }
 
@@ -40,12 +40,15 @@ public class ClusterResource {
     @Path("/nodesNotified")
     public NodeMapDTO nodesNotified() {
         NodeMap nodeMap = clusterNodesChangedService.getCurrentNodeMap();
+        if (nodeMap == null) {
+            nodeMap = channelGroup.getNodes();
+        }
         NodeMapDTO nodeMapDTO = new NodeMapDTO();
         for (String nodeName : nodeMap.getNodeMap().keySet()) {
             InetSocketAddress address = nodeMap.getNodeMap().get(nodeName);
             nodeMapDTO.getNodeMap().put(nodeName, address.toString());
         }
-        nodeMapDTO.setCurrentNode(nodeMap.getCurrentNode().getName());
+        nodeMapDTO.setCurrentNode(nodeMap.getCurrentNode());
         return nodeMapDTO;
     }
 

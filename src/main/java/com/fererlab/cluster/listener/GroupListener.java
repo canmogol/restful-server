@@ -3,12 +3,10 @@ package com.fererlab.cluster.listener;
 import com.fererlab.cluster.log.GroupListenerLogger;
 import com.fererlab.cluster.service.ClusterNodesChangedService;
 import com.fererlab.cluster.service.NodeMap;
-import org.wildfly.clustering.group.Group;
-import org.wildfly.clustering.group.Node;
 
 import java.util.List;
 
-public class GroupListener implements Group.Listener {
+public class GroupListener implements org.wildfly.clustering.group.Group.Listener {
 
     private final ClusterNodesChangedService service;
     private GroupListenerLogger logger = new GroupListenerLogger();
@@ -18,7 +16,7 @@ public class GroupListener implements Group.Listener {
     }
 
     @Override
-    public void membershipChanged(List<Node> previousNodeList, List<Node> currentNodeList, boolean isMerged) {
+    public void membershipChanged(List<org.wildfly.clustering.group.Node> previousNodeList, List<org.wildfly.clustering.group.Node> currentNodeList, boolean isMerged) {
         logger.membershipChangedNotified();
         String currentNodeName = System.getProperty("jboss.node.name") + "/web";
 
@@ -26,7 +24,7 @@ public class GroupListener implements Group.Listener {
         String previousNodes = "";
         NodeMap previousNodeMap = new NodeMap();
         if (previousNodeList != null) {
-            for (Node node : previousNodeList) {
+            for (org.wildfly.clustering.group.Node node : previousNodeList) {
                 previousNodeMap.getNodeMap().put(node.getName(), node.getSocketAddress());
                 previousNodes += "[" + node.getName() + " : " + node.getSocketAddress() + "] ";
             }
@@ -38,11 +36,11 @@ public class GroupListener implements Group.Listener {
         NodeMap currentNodeMap = new NodeMap();
         String currentNodes = "";
         if (currentNodeList != null) {
-            for (Node node : currentNodeList) {
+            for (org.wildfly.clustering.group.Node node : currentNodeList) {
                 currentNodeMap.getNodeMap().put(node.getName(), node.getSocketAddress());
                 currentNodes += "[" + node.getName() + " : " + node.getSocketAddress() + "] ";
                 if (currentNodeName.equals(node.getName())) {
-                    currentNodeMap.setCurrentNode(node);
+                    currentNodeMap.setCurrentNode(node.getName());
                 }
             }
         }
