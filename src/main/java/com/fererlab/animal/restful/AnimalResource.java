@@ -21,6 +21,12 @@ public class AnimalResource {
     }
 
     @GET
+    @Path("/osman")
+    public String osman() {
+        return "Hello OSMAN";
+    }
+
+    @GET
     @Path("/list")
     @SuppressWarnings("unchecked")
     public GenericList list() {

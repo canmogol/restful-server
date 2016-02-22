@@ -3,6 +3,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
+
     <groupId>com.restful.server.coast</groupId>
     <artifactId>restful-server</artifactId>
     <packaging>war</packaging>
@@ -53,7 +54,7 @@
                             <linkAnyMediaTypeToXmlSchema>true</linkAnyMediaTypeToXmlSchema>
                             <classResourceNames/>
                             <basePackages>
-                                com.fererlab.image.resource,com.fererlab.city.restful,com.fererlab.user.restful,com.fererlab.car.restful,com.fererlab.async.restful,com.fererlab.animal.restful
+                                com.fererlab.image.resource,com.fererlab.city.restful,com.fererlab.user.restful,com.fererlab.car.restful,com.fererlab.async.restful,com.fererlab.animal.restful,com.fererlab.client.restful
                             </basePackages>
                             <docProvider>org.apache.cxf.maven_plugin.javatowadl.ResourceMapJavaDocProvider</docProvider>
                             <attachWadl>true</attachWadl>
