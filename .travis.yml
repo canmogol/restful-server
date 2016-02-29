@@ -1,3 +1,14 @@
 language: java
 jdk:
   - oraclejdk8
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+#deploy:
+#  provider: openshift
+#  user: "canmogol@gmail.com"
+#  password:
+#    secure: GTBEDPKeQRKU9PZneTJL6DMeaRYCmoNu2q5mfA6gAZf+K297cnL0QpX4wNVNacMSO9NKE+5k5VSyqsjNsx2G1BscNdOLHKCFULGR7GR6Bf3oQPz5yEVFpEmS0CDNlR6bzyj/6S8Zkc/Y8Vk/UHcK3r59v3eG3E8aP7x49ijF0QiHTY2RJSv1U/Lz9xLvl4vmqxV2LHyDsgEpRPRjVn/53rVgvdSW3zOwM4r0gB8HvSVxpzNFMFmGiWgKh6beoZJj6DOEauIOlMOvd6mqZEUkGMe6FYKVop07xc9GOh96jst3HZJHqUvYTQ8nDXrnHMWZAIN9g0guf37MxKozNHrOy5clwNDxmIhC3ndABqV5ZRSLTWTO6hC7wmO94GeGNNsFwk8jpRyxlpYx52rfOP2VeK1PRTxFOlX713Ifp3tHJRSjgwTeEZQ8L9mYtkHu37vLEztP7kMnDqHtLA4ArWRkhCAx34qRbh/0lGwXcDz10JYWujOtFIJ4eLXuFZkU+ggDflc11EKEOHGuCnsUtfMZWeG7HRy9wldrGNPSSlZ74kQq2JiO8CHLtAhF71ZFwK4hJGb3pONl5cetNGJgijE6sO4IZYZ62tlVCRgTTpbp0FpWRl4sBxQEaLbMfttWVMKV55LChtd2LGA/Nq3WrL+AKccedjxJNwuYwXjck/6kFn0=
+#  app: restfulserver
+#  domain: "canm"
+#  on:
+#    repo: canmogol/restful-server
