@@ -23,6 +23,7 @@ public class AnimalResourceTest {
     @Test
     public void testList() throws Exception {
         GenericList list = animalResource.list();
+        Assert.assertNotNull(list);
         Assert.assertEquals(list.getList().size(), 2);
     }
 }
