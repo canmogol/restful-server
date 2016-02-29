@@ -17,7 +17,9 @@ public class AnimalResourceTest {
 
     @Test
     public void testHi() throws Exception {
-        Assert.assertEquals(animalResource.hi(), "Hello");
+        String response = animalResource.hi();
+        Assert.assertNotNull(response);
+        Assert.assertEquals(response, "Hello");
     }
 
     @Test
