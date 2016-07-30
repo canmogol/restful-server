@@ -12,3 +12,5 @@ after_success:
 #  domain: "canm"
 #  on:
 #    repo: canmogol/restful-server
+after_success:
+  - mvn coveralls:report
