@@ -12,18 +12,3 @@ after_success:
 #  domain: "canm"
 #  on:
 #    repo: canmogol/restful-server
-env:
-  global:
-   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
-   #   via the "travis encrypt" command using the project repo's public key
-   - secure: "CX6ztXy2GGUi/IGAak3ZDcQ74mc0O8YigjEX4iCpvDjJpHuE4ylvHxCu+COIU/L4w2xQxhirGqS2hjveUUnFWZ0jd9KvbD/pRBW2RWqUcdt4pY5uJBbuCPyHBxqZLLd4YdMZtSQwen0KYALayfXd02ZCjAyUjqEzGNOFhWr7ij6bPuCpw+fzhVqQaFyiFHKyppm/xVn+5g0vfgbOHi/I6LhJVTW8xhqeTaDLKBx7ukx6qzQ6u6nzQQt7SVlC4LHZYMvC/ZH579ihY51FW0kNp1fxh+AGC7bbevL40U54wpMqIDxI/sxvFtQ4p6sqDb4vkDAU3y0A0UrWIimTR6N69szYdjHo66yutk/hN3KYb8OlLNVgSQCHvSw8aQTfC+rrsantUVuUCWZ1PdxqEjUxtFBFk8G0eHG9RMGH95LiiCYs71+n60+uYSZNsrAFqwyDhe6/sDIMYWzzlILuN+BTYO2FrYyzBgiD1gDnWNz3OoicLwTesX8k3HKzJskTHo6MFUFt4BlNAQ/mG63MH9W/lh9Dd9TN3zKHB1VN2WNCq5rDbC/l2Pv18do702Uh8l6y9LXVk08zsStcNo5sZxFEFJzKctdp1gLJuVfJsIsA03LuHWtf7XynG8vu78Eom59+WkGw7KjvheP9YkrxhaL8bG0lwuxsJsNa7AMpUnHkV7w="
-
-addons:
-  coverity_scan:
-    project:
-      name: "canmogol/restful-server"
-      description: "Build submitted via Travis CI"
-    notification_email: canmogol@gmail.com
-    build_command_prepend: "mvn clean"
-    build_command:   "mvn -DskipTests=true compile"
-    branch_pattern: coverity_scan
