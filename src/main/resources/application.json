@@ -1,0 +1,739 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "",
+    "title": "WADL for restful-server-0.0.1-SNAPSHOT",
+    "description": "",
+    "license": {
+      "name": "MIT",
+      "url": "http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
+    }
+  },
+  "securityDefinitions": {},
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/user": {
+      "get": {
+        "description": "",
+        "operationId": "find_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "x-is-map": false,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "operationId": "update_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "operationId": "create_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "operationId": "delete_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "x-is-map": false,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/throwNullPointer": {
+      "get": {
+        "description": "",
+        "operationId": "Get_throwNullPointer_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "x-is-map": false,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/throwUser": {
+      "get": {
+        "description": "",
+        "operationId": "Get_throwUser_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "x-is-map": false,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/throwUserDatabase": {
+      "get": {
+        "description": "",
+        "operationId": "Get_throwUserDatabase_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "x-is-map": false,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/throwUserIO": {
+      "get": {
+        "description": "",
+        "operationId": "Get_throwUserIO_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "x-is-map": false,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/download/{name}": {
+      "get": {
+        "description": "",
+        "operationId": "Get_download_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": false,
+            "x-is-map": false,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/downloadStream/{name}": {
+      "get": {
+        "description": "",
+        "operationId": "Get_downloadStream_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": false,
+            "x-is-map": false,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/upload/{name}": {
+      "post": {
+        "description": "",
+        "operationId": "upload_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": false,
+            "x-is-map": false,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/car": {
+      "get": {
+        "description": "",
+        "operationId": "find_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "x-is-map": false,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "operationId": "update_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "operationId": "create_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "operationId": "delete_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "x-is-map": false,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/hi": {
+      "get": {
+        "description": "",
+        "operationId": "Get_hi_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/list": {
+      "get": {
+        "description": "",
+        "operationId": "list_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/zoo": {
+      "get": {
+        "description": "",
+        "operationId": "get_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/executorRunnable": {
+      "post": {
+        "description": "",
+        "operationId": "Create_executorRunnable_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/sayHi": {
+      "post": {
+        "description": "",
+        "operationId": "Create_sayHi_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/create/ID": {
+      "get": {
+        "description": "",
+        "operationId": "Get_createModelWithID_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/create/IDNoAudit": {
+      "get": {
+        "description": "",
+        "operationId": "Get_createModelWithIDNoAudit_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/create/OID": {
+      "get": {
+        "description": "",
+        "operationId": "Get_createModelWithOID_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/create/OIDNoAudit": {
+      "get": {
+        "description": "",
+        "operationId": "Get_createModelWithOIDNoAudit_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/create/UUID": {
+      "get": {
+        "description": "",
+        "operationId": "Get_createModelWithUUID_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/create/UUIDNoAudit": {
+      "get": {
+        "description": "",
+        "operationId": "Get_createModelWithUUIDNoAudit_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/deleteCS/ID/{id}": {
+      "get": {
+        "description": "",
+        "operationId": "Get_deleteModelWithIDCityService_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": false,
+            "x-is-map": false,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/find/ID/{id}": {
+      "get": {
+        "description": "",
+        "operationId": "findModelWithID_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": false,
+            "x-is-map": false,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/find/OID/{oid}": {
+      "get": {
+        "description": "",
+        "operationId": "findModelWithOID_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "oid",
+            "in": "path",
+            "required": false,
+            "x-is-map": false,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/find/UUID/{uuid}": {
+      "get": {
+        "description": "",
+        "operationId": "findModelWithUUID_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": false,
+            "x-is-map": false,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/updateCS/ID/{id}/{name}": {
+      "get": {
+        "description": "",
+        "operationId": "Get_updateModelWithIDCityService_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": false,
+            "x-is-map": false,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": false,
+            "x-is-map": false,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/updateGS/ID/{id}/{name}": {
+      "get": {
+        "description": "",
+        "operationId": "Get_updateModelWithIDGenericService_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": false,
+            "x-is-map": false,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": false,
+            "x-is-map": false,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/findPersonJson": {
+      "get": {
+        "description": "",
+        "operationId": "findPersonJson_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/findPersonProto": {
+      "get": {
+        "description": "",
+        "operationId": "findPersonProto_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/updatePersonJson": {
+      "post": {
+        "description": "",
+        "operationId": "updatePersonJson_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/updatePersonJsonProto": {
+      "get": {
+        "description": "",
+        "operationId": "Get_updatePersonJsonProto_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    }
+  }
+}
